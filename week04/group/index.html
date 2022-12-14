@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #board {
+      width: 300px;
+      height: 300px;
+      border-spacing: 0;
+    }
+
+    td {
+      width: 33.3%;
+      height: 33.3%;
+      border: 1px solid black;
+      font-size: 4rem;
+      text-align: center;
+    }
+
+    #one, #two, #three {
+      border-top: none;
+    }
+
+    #one, #four, #seven {
+      border-left: none;
+    }
+
+    #seven, #eight, #nine {
+      border-bottom: none;
+    }
+
+    #three, #six, #nine {
+      border-right: none;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <table id="board">
+      <tr>
+        <td id="one"></td>
+        <td id="two"></td>
+        <td id="three"></td>
+      </tr>
+      <tr>
+        <td id="four"></td>
+        <td id="five"></td>
+        <td id="six"></td>
+      </tr>
+      <tr>
+        <td id="seven"></td>
+        <td id="eight"></td>
+        <td id="nine"></td>
+      </tr>
+    </table>
+    <button id="reset">Reset board</button>
+  </main>
+</body>
+<script defer>
+  const board = document.getElementById('board');
+  const tds = document.querySelectorAll('td');
+  const resetButton = document.getElementById('reset');
+  let turnEven = true;
+  
+  function play(cell) {
+    if (turnEven && cell.textContent === '') {
+      cell.textContent = 'X';
+      turnEven = !turnEven;
+    } else {
+      if (cell.textContent === '') {
+        cell.textContent = 'O';
+        turnEven = !turnEven;  
+      }
+    }
+  };
+
+  function resetBoard() {
+    tds.forEach((td) => {
+      td.textContent = '';
+    })
+    turnEven = true;
+  }
+
+  function isBoardFilled() {
+    isFilled = true;
+    tds.forEach((td) => {
+      if (td.textContent === '') {
+        isFilled = false;
+      }
+    })
+    return isFilled;
+  }
+
+  function checkWinDiagonal(state) {    
+    return false;
+  }
+
+  function checkState() {
+    if ((tds[0].textContent === tds[1].textContent && tds[0].textContent === tds[2].textContent && tds[0].textContent !== '') || (tds[3].textContent === tds[4].textContent && tds[3].textContent === tds[5].textContent && tds[3].textContent !== '') || (tds[6].textContent === tds[7].textContent && tds[6].textContent === tds[8].textContent && tds[6].textContent !== '') || (tds[0].textContent === tds[3].textContent && tds[0].textContent === tds[6].textContent && tds[0].textContent !== '') || (tds[1].textContent === tds[4].textContent && tds[1].textContent === tds[7].textContent && tds[1].textContent !== '') || (tds[2].textContent === tds[5].textContent && tds[2].textContent === tds[8].textContent && tds[2].textContent !== '') || (tds[0].textContent === tds[4].textContent && tds[0].textContent === tds[8].textContent && tds[0].textContent !== '') || (tds[2].textContent === tds[4].textContent && tds[2].textContent === tds[6].textContent && tds[2].textContent !== '')){
+      alert(`${turnEven ? 'Player 2' : 'Player 1'} won!`)
+    }
+
+    if (isBoardFilled()) {
+      alert('It\'s a draw! Play again!')
+    }
+  }
+
+  board.addEventListener('click', (event) => {
+    play(event.target)
+    setTimeout(checkState, 100)
+  });
+  reset.addEventListener('click', resetBoard);
+</script>
+</html>

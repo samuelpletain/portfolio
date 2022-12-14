@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 10 - Notes</title>
+  <script src="./main.js" defer></script> 
+  <style>
+    input:invalid {
+      border: 2px dashed red;
+    }
+
+    input:valid {
+      border: 2px solid black;
+    }
+
+    input:invalid:required {
+      background-image: linear-gradient(to right, pink, lightgreen);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Week 10 - Notes</h1>
+    <p>The notes for this week are in the comment of <a target="_blank" href="./main.js">this javascript file</a>. Open the console to see the code results.</p>
+    <p>Textarea doesn't not support the pattern attribute.</p>
+    <form>
+      <div>
+        <label for="choose">Would you prefer a banana, an apple, or a cherry? (required)</label>
+        <input type="text" id="choose" name="i-like" required pattern="[Bb]anana|[Cc]herry|[Aa]pple" minlength="5" maxlength="6">
+      </div>
+      <div>
+        <label for="number">How many would you like?</label>
+        <input type="text" id="number" name="amount" value="1" min="1" max="10">
+      </div>
+      <button>Submit</button>
+    </form>
+    <form>
+      <label for="mail">Please type your email address below</label>
+      <input type="email" id="mail" name="mail">
+      <button>Submit</button>
+    </form>
+    <p>Another example of the constraint validation API can be found <a href="./form/index.html">here</a>. You will find the associated Javascript file <a href="./form/main.js">here</a></p>
+    <p>You will find the notes regarding the fetch article <a href="./fetch/index.html">here</a>.</p>
+    <a href="../index.html">Back to the portfolio</a>
+  </main>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 2 - Group Activity</title>
+  <script defer>
+    function inputToDisplay() {
+      const inputValue = parseInt(document.getElementById('input').value, 10);
+      const display = document.getElementById('display');
+      let res = -1;
+      if (inputValue !== NaN && inputValue >= 0 ) {
+        res = addAllNumbers(inputValue)
+      }
+      display.textContent = res >= 0 ? res : "Please enter a positive number.";
+    }
+
+    function addAllNumbers(num) {
+      let res = 0;
+      for (let i = 1; i <= num; i++) {
+        res += i;
+      }
+      return res
+    }
+
+    function add(num1, num2) {
+      return num1 + num2;
+    }
+
+    function sub(num1, num2) {
+      return num1 - num2;
+    }
+
+    const mult = function (num1, num2) {
+      return num1 * num2;
+    }
+
+    const div = (num1, num2) => {
+      if (num2 !== 0) {
+        return num1 / num2;
+      }
+      return "Cannot divide by 0."
+    }
+
+    const calc = (a, b, callback) => {
+      return callback(a, b);
+    }
+
+    function showResult(callback) {
+      // Parse values to number in base 10
+      const num1 = parseInt(document.getElementById('input').value, 10); 
+      const num2 = parseInt(document.getElementById('input2').value, 10);
+      const resultDiv = document.getElementById('result')
+      // Check if values are numbers
+      if (!isNaN(num1) && !isNaN(num2)) {
+        res = calc(num1, num2, callback)
+        resultDiv.textContent = res;
+      } else {
+        resultDiv.textContent = "Please enter numbers only."  
+      }
+    }
+  </script>
+</head>
+<body>
+  <input id="input" type="text">
+  <input id="button" type="button" value="Display value" onclick="inputToDisplay()">
+  <input id="input2" type="text">
+  <input id="add" type="button" value="Add" onclick="showResult(add)">
+  <input type="button" value="Substract" onclick="showResult(sub)">
+  <input type="button" value="Multiply" onclick="showResult(mult)">
+  <input type="button" value="Divide" onclick="showResult(div)">
+  <div id="display"></div>
+  <div id="result"></div>
+  <a href="../index.html">Back to the portfolio</a>
+</body>
+</html>

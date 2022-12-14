@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: 'Poller One', sans-serif;
+  background-color: black;
+}
+
+#app {
+  color: gold;
+}
+
+#ships {
+  list-style: none;
+  padding: 1rem;
+}
+
+#ships li {
+  padding: .5rem;
+}
+
+button {
+  padding: .75rem;
+  font-family: 'Poller One', sans-serif;
+  color: black;
+  background-color: gold;
+  border: none;
+  border-radius: 5px;
+}
+
+#pages {
+  display: inline-block;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+#pages * {
+  margin-right: .5rem;
+}
+
+#pages *:last-child {
+  margin-right: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.selected {
+  font-weight: bold;
+}
+
+#all, #single {
+  padding: .5rem;
+}
