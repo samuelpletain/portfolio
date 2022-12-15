@@ -102,7 +102,7 @@ const links = [
   },
   {
     label: "Challenge 2",
-    url: "challenge2/app/index.html"
+    url: "https://samuelpletain.github.io/flags/"
   }
 ]
 
@@ -112,7 +112,11 @@ function createListItems(list, items) {
     let a = document.createElement('a')
     let linkText = document.createTextNode(item.label)
     a.appendChild(linkText)
-    a.href = "./" + item.url
+    if (item.url.includes("github") {
+      a.href = item.url
+    } else {
+      a.href = "./" + item.url
+    }
     list.appendChild(li).appendChild(a)
   })
 }
