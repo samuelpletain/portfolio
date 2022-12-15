@@ -112,7 +112,7 @@ function createListItems(list, items) {
     let a = document.createElement('a')
     let linkText = document.createTextNode(item.label)
     a.appendChild(linkText)
-    if (item.url.includes("github") {
+    if (item.url.includes("github")) {
       a.href = item.url
     } else {
       a.href = "./" + item.url
