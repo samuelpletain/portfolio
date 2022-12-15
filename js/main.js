@@ -98,7 +98,7 @@ const links = [
   },
   {
     label: "Week 11 - Group Activity",
-    url: "week11/group/client/index.html"
+    url: "week11/group/client/week11.html"
   },
   {
     label: "Challenge 2",
